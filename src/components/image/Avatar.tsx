@@ -30,6 +30,7 @@ export function NextAvatar({
       }
     : {})}
   alt={alt}
+ const objectFit: "cover" | "contain" | "fill" | "none" | "scale-down" = "cover";
   objectFit={objectFit}
   src={src}
   style={{ ...style, borderRadius: '50%' }}
