@@ -17,12 +17,16 @@ export async function POST(req: NextRequest) {
         ? [{ role: "user", content: body.prompt }]
         : []);
 
-    if (!process.env.OPENAI_API_KEY) {
-  console.warn("⚠️ OPENAI_API_KEY is missing — using mock response mode");
-  return new Response(
-    JSON.stringify({ message: "Mock: API key missing (dev mode)" }),
-    { status: 200 }
-  );
+   if (!process.env.OPENAI_API_KEY) {
+  console.warn("⚠️ Missing OPENAI_API_KEY — mock mode enabled");
+  return new Response(JSON.stringify({
+    message: "Mock API mode active"
+  }), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
 }
 
     const response = await client.chat.completions.create({
