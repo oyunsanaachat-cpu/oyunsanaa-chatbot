@@ -2,7 +2,7 @@
 import OpenAI from "openai";
 import { NextRequest } from "next/server";
 
-export const runtime = "edge"; // Vercel/Edge дээр хурдан, streaming OK
+export const runtime = "nodejs"; // dev дээр тогтвортой
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
