@@ -29,11 +29,12 @@ export function NextAvatar({
                       borderColor: colorMode === 'dark' ? 'navy.700' : 'white',
                   }
                 : {})}
-            alt={alt}
-           objectFit?: ResponsiveValue<CSS.Property.ObjectFit>;
-            src={src}
-            style={{ ...style, borderRadius: '50%' }}
-        />
+            <Image
+  alt={alt}
+  objectFit={objectFit}
+  src={src}
+  style={{ ...style, borderRadius: '50%' }}
+/>
     );
 }
 
