@@ -17,12 +17,13 @@ export async function POST(req: NextRequest) {
         ? [{ role: "user", content: body.prompt }]
         : []);
 
-    if (!messages.length) {
-      return new Response(JSON.stringify({ error: "No input provided" }), {
-        status: 400,
-        headers: { "content-type": "application/json" },
-      });
-    }
+    if (!process.env.OPENAI_API_KEY) {
+  console.warn("⚠️ OPENAI_API_KEY is missing — using mock response mode");
+  return new Response(
+    JSON.stringify({ message: "Mock: API key missing (dev mode)" }),
+    { status: 200 }
+  );
+}
 
     const response = await client.chat.completions.create({
       model: "gpt-4o-mini",
