@@ -22,14 +22,13 @@ export function NextAvatar({
 
     return (
         <Image
-            {...props}
-            {...(showBorder
-                ? {
-                      border: '2px',
-                      borderColor: colorMode === 'dark' ? 'navy.700' : 'white',
-                  }
-                : {})}
-            <Image
+  {...props}
+  {...(showBorder
+    ? {
+        border: '2px',
+        borderColor: colorMode === 'dark' ? 'navy.700' : 'white',
+      }
+    : {})}
   alt={alt}
   objectFit={objectFit}
   src={src}
