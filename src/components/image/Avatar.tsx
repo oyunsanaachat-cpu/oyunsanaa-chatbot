@@ -1,4 +1,6 @@
 'use client'
+import type { ResponsiveValue } from "@chakra-ui/react";
+import type * as CSS from "csstype";
 import { chakra, useColorMode } from '@chakra-ui/system';
 import { ComponentProps } from 'react';
 import { Image } from './Image';
@@ -28,7 +30,7 @@ export function NextAvatar({
                   }
                 : {})}
             alt={alt}
-            objectFit={'fill'}
+           objectFit?: ResponsiveValue<CSS.Property.ObjectFit>;
             src={src}
             style={{ ...style, borderRadius: '50%' }}
         />
